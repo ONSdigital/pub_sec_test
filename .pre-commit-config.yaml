@@ -48,3 +48,11 @@ repos:
         entry: These file extensions are restricted. Data should be removed from the commit
         language: fail
         files: .*\.(csv|feather|xlsx|zip|hdf5|h5|txt|json|xml|hd|parquet)
+
+    - repo: https://github.com/Yelp/detect-secrets
+      rev: v1.5.0
+      hooks:
+          - id: detect-secrets
+            name: detect-secrets - Detect secrets in staged code
+            args: ["--baseline", ".secrets.baseline"]
+            exclude: .*/tests/.*|^\.cruft\.json$
